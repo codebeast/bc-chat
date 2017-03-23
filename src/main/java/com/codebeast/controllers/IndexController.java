@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class IndexController {
 
@@ -17,8 +19,8 @@ public class IndexController {
     }
 
     @PostMapping("/showChat")
-    public String showChat(@ModelAttribute User user) {
-        System.out.println(user.getName());
+    public String showChat(@ModelAttribute User user, final HttpSession httpSession) {
+        httpSession.setAttribute("username", user);
         return "redirect:/chat";
     }
 
