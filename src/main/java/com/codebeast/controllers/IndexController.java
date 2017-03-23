@@ -20,7 +20,8 @@ public class IndexController {
 
     @PostMapping("/showChat")
     public String showChat(@ModelAttribute User user, final HttpSession httpSession) {
-        httpSession.setAttribute("username", user);
+        httpSession.setAttribute("user", user);
+        System.out.println("User '" + user + "' has logged in");
         return "redirect:/chat";
     }
 

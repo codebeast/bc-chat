@@ -1,19 +1,23 @@
 package com.codebeast.controllers;
 
+import com.codebeast.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class ChatController {
 
     @RequestMapping("/chat")
-    public String greeting() {
-        //get the name from the session
-
-
+    public String greeting(Model model, HttpSession httpSession) {
+        final User user = (User) httpSession.getAttribute("user");
+        if (user == null || user.getName() == null) {
+            return "redirect:/";
+        }
+        model.addAttribute("user", user);
         return "chat";
     }
 
