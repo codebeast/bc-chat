@@ -8,53 +8,11 @@
 
 </head>
 <body>
-<div>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-    <p>kjhasdkjahsdkjhaskjhkjdas</p>
+<div th:each="message : ${messagesList}">
+    <p th:text="${message.name}"></p>
+    <p th:text="${message.message}"></p>
 </div>
+<div>test</div>
+
 </body>
 </html>

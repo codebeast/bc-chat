@@ -22,61 +22,13 @@
     <div class="container">
         <div class="row">
             <div class="col s12 l8 push-l2 left">
-                <div>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                    <p>kjhasdkjahsdkjhaskjhkjdas</p>
-                </div>
+                <iframe id="iframe" name="iframe" src="/messages" onload="iframeLoaded()"></iframe>
             </div>
         </div>
     </div>
 </main>
 
-<footer class=" page-footer white
-            ">
+<footer class=" page-footer white">
     <div class="container">
         <div class="row">
             <div class="col s12 l8 push-l2 center">
@@ -85,6 +37,7 @@
                     <input id="message" type="text" class="validate"/>
                     <label for="message" th:text="${user.name}"></label>
                 </div>
+                <a class="waves-effect waves-light btn"><input type="submit" value="Send"/></a>
             </div>
         </div>
     </div>
@@ -98,6 +51,7 @@ function resize() {
     var height = $(window).height() - 210;
     var size = height + 'px';
     $('div[name=message_container]').css('height',  size);
+    iframeLoaded();
 }
 
 $(document).ready(function(){
@@ -110,8 +64,26 @@ window.onresize = function(event) {
     resize();
 };
 
+function iframeLoaded() {
+    var iFrameID = document.getElementById('iframe');
+    if(iFrameID) {
+        var height = $(window).height() - 210;
+        var size = height + 'px';
+        iFrameID.height = "";
+        iFrameID.height = size;
+        iFrameID.width = "100%";
+        var $contents = $('#iframe').contents();
+        $contents.scrollTop($contents.height());
+    }
+}
 
+function reload() {
+    console.log("reloading ui");
+    document.getElementById('iframe').contentWindow.location.reload();
+    setTimeout(reload, 10000);
+}
 
+setTimeout(reload, 10000);
 
 
 </script>
